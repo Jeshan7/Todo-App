@@ -1,0 +1,16 @@
+<html>
+<head></head>
+<body>
+  <p>Todo</p>
+  <form action="/todo" method="POST">
+  <input type="text" name="description">
+  <!-- <input type="submit" value="ADD"> -->
+  <button type="submit">ADD</button>
+  </form>
+  <ul>
+    {{#todos}}
+   <li>{{description}} - {{done}}</li>
+    {{/todos}}
+ </ul>
+</body>
+</html>
