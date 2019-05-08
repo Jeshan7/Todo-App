@@ -1,16 +1,31 @@
 <html>
-<head></head>
+<head><title>Todo-App</title></head>
+<link rel='stylesheet' href='./public/css/style.css'>
 <body>
-  <p>Todo</p>
+  <h1>Todo</h1>
   <form action="/todo" method="POST">
-  <input type="text" name="description">
+  <input class="desc" type="text" name="description">
   <!-- <input type="submit" value="ADD"> -->
-  <button type="submit">ADD</button>
+  <button class="btn1"type="submit">ADD</button>
   </form>
-  <ul>
+  <ol>
     {{#todos}}
-   <li>{{description}} - {{done}}</li>
+   <li><form action="todo/{{_id}}/completed" method="POST">
+     {{description}}
+     <button class="btn2" type="submit">Done</button>
+   </form>
+   </li>
     {{/todos}}
- </ul>
+ </ol>
+ <ol>
+   <h3>Done</h3>
+   {{#donetodos}}
+     <li><form action="todo/{{_id}}/completed" method="POST">
+       {{description}}
+       <button class="btn3" type="submit">Not Done</button>
+         </form>
+     </li>
+   {{/donetodos}}
+</ol>
 </body>
 </html>
